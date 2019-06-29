@@ -3,9 +3,7 @@ package com.example.spoons_game;
 import java.io.Serializable;
 import java.util.*;
 
-//extends Serializable <- put in later
-
-public class Player {
+public class Player implements Serializable {
     /**
      * The players "stack", for the dealer it will be deck
      */

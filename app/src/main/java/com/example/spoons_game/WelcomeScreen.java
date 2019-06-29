@@ -14,6 +14,8 @@ public class WelcomeScreen extends AppCompatActivity {
 
     TextView welcome;
 
+    TextView errorName;
+
     EditText name;
 
     Button setRules;
@@ -31,6 +33,8 @@ public class WelcomeScreen extends AppCompatActivity {
         welcome.setText(welcomeMessage);
         setRules = findViewById(R.id.setRules);
         name = findViewById(R.id.playerName);
+        errorName = findViewById(R.id.needName);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -47,6 +51,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
                     startActivity(new Intent(WelcomeScreen.this, Game.class));
                 }
+                errorName.setVisibility(View.VISIBLE);
             }
         });
 

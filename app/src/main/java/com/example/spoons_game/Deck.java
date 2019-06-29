@@ -1,11 +1,12 @@
 package com.example.spoons_game;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Stack;
 
-public class Deck {
+public class Deck implements Serializable {
     /**
      * Stacks allow us to pop off cards since we don't want to retain cards in the deck, we are just taking cards off the deck
      */

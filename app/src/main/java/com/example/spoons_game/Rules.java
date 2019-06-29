@@ -20,15 +20,22 @@ public class Rules extends AppCompatActivity {
 
     Button toHome;
 
-    protected void OnCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         rules = findViewById(R.id.rules);
         rules.setText(gameRules);
         toHome = findViewById(R.id.home);
+
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Rules.this, WelcomeScreen.class));
             }
         });
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rules);
     }
+
+
 }
