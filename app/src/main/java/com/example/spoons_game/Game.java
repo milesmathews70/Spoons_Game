@@ -35,10 +35,14 @@ public class Game extends AppCompatActivity {
         c4 = cardfour.toString();
         c5 = cardfive.toString();
 
+
     }
 
-    //Use displayCard to display the cards for the game, this method is to be called
+    //Use displayCard to display the cards for the game,
+    // this method is to be called when we deal the hand and
+    // every time a card is sent to the player and a card is swapped.
     public Image displayCard(String cardName) {
+        Image image = null;
         if (cardName.equals("1 of Clubs")) {
 
         } else if (cardName.equals("1 of Diamonds")) {
@@ -144,7 +148,7 @@ public class Game extends AppCompatActivity {
         } else {
 
         }
-        return;
+        return image;
     }
 }
 
