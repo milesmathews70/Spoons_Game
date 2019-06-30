@@ -8,8 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.ImageView;
 
 public class Game extends AppCompatActivity {
+
+    ImageView card1, card2, card3, card4,newcard;
 
     Card cardone, cardtwo, cardthree, cardfour, cardfive;
     String c1, c2, c3, c4, c5;
@@ -34,6 +37,12 @@ public class Game extends AppCompatActivity {
         c3 = cardthree.toString();
         c4 = cardfour.toString();
         c5 = cardfive.toString();
+
+        card1 = findViewById();
+        card3 = findViewById();
+        card4 = findViewById();
+        card2 = findViewById();
+        newcard = findViewById();
 
 
     }
