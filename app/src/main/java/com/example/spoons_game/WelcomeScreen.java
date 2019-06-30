@@ -10,8 +10,6 @@ import android.content.Intent;
 
 public class WelcomeScreen extends AppCompatActivity {
 
-    int NumOfPlayers;
-
     TextView welcome;
 
     TextView errorName;

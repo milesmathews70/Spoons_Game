@@ -87,5 +87,9 @@ public class Player implements Serializable {
                 hand.get(2).getName().equals(hand.get(1).getName()) &&
                 hand.get(2).getName().equals(hand.get(3).getName()));
     }
+
+    public Card getCard(int pos) {
+        return hand.get(pos);
+    }
 }
 
