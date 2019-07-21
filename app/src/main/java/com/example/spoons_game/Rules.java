@@ -20,11 +20,18 @@ public class Rules extends AppCompatActivity {
 
     Button toHome;
 
+    String goHome = "Back to the home screen!";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rules);
+
         rules = findViewById(R.id.rules);
-        rules.setText(gameRules);
         toHome = findViewById(R.id.home);
+
+        rules.setText(gameRules);
+        toHome.setText(goHome);
 
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,8 +40,6 @@ public class Rules extends AppCompatActivity {
             }
         });
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rules);
     }
 
 

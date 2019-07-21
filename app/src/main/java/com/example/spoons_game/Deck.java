@@ -26,6 +26,10 @@ public class Deck implements Serializable {
         Shuffle();
     }
 
+    public Deck(Player player) {
+        deckOfCards = new Stack<Card>();
+    }
+
     /**
      * The function for shuffling, we take all of the cards out of the Stack into a ArrayList,
      * that way we can randomly take cards out of the ArrayList into the old Stack
@@ -93,8 +97,12 @@ public class Deck implements Serializable {
      * For keeping the deck count, for testing purposes
      * @return returns the size of the deck an Integer
      */
-    public int size() {
-        return deckOfCards.size();
+    public int size() throws NullPointerException {
+        try {
+            return deckOfCards.size();
+        } catch (NullPointerException e) {
+            return 0;
+        }
     }
 
     /**
@@ -110,6 +118,22 @@ public class Deck implements Serializable {
      * @return returns a card
      */
     public Card pop() {
+        return deckOfCards.pop();
+    }
+
+    public void push(Card c) {
+        deckOfCards.push(c);
+    }
+
+    public Card getCard(int pos) {
+        if (pos < deckOfCards.size()) {
+            return deckOfCards.get(pos);
+        }
+        return null;
+    }
+
+    public Card popNewCard(Card c, Player player) {
+        player.getOtherDeck().push(c);
         return deckOfCards.pop();
     }
 }

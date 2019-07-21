@@ -18,14 +18,13 @@ public class SignIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        email = findViewById(R.id.emailAdd).toString();
-        pass = findViewById(R.id.passAdd).toString();
-
         signIn = findViewById(R.id.signIn);
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Use OAuth to sign in HERE, but for now, go to the welcome screen
+                //Use OAuth to sign in, but for now go to the welcome screen
+                email = findViewById(R.id.emailAdd).toString();
+                pass = findViewById(R.id.passAdd).toString();
                 startActivity(new Intent(SignIn.this, WelcomeScreen.class));
             }
         });

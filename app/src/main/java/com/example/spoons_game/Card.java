@@ -1,6 +1,8 @@
 package com.example.spoons_game;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable {
     private String suit;
     private String name;
     public Card(String s, String na) {
@@ -17,7 +19,11 @@ public class Card {
         return suit;
     }
 
-    public String toString() {
-        return getName() + " of " + getSuit();
+    public String toString() throws NullPointerException {
+        try {
+            return getName() + " of " + getSuit();
+        } catch (NullPointerException e) {
+            return "no card present.";
+        }
     }
 }

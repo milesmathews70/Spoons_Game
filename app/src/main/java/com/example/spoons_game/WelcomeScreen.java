@@ -7,49 +7,75 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Button;
 import android.content.Intent;
+import java.util.*;
 
 public class WelcomeScreen extends AppCompatActivity {
 
-    TextView welcome;
+    TextView errorName, welcomeTag, Name;
 
-    TextView errorName;
+    EditText playerName;
 
-    EditText name;
-
-    Button setRules;
-
-    Button toMove;
+    Button setRules, toMove;
 
     Player player;
 
     Deck deck;
 
+    String welcomeMessage = "Welcome to Spoons!";
+
+    String toPlay = "Click to Play!";
+
+    String needName = "Need a name to play!";
+
+    String rules = "Click to see the rules!";
+
+    String name = "Name:";
+
+    ArrayList<Player> listOfPlayers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        welcome = findViewById(R.id.welcometag);
-        String welcomeMessage = "Welcome to Spoons!";
-        welcome.setText(welcomeMessage);
-        setRules = findViewById(R.id.setRules);
-        name = findViewById(R.id.playerName);
-        errorName = findViewById(R.id.needName);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setRules = findViewById(R.id.setRules);
         toMove = findViewById(R.id.moveOn);
+        welcomeTag = findViewById(R.id.welcomeTag);
+        Name = findViewById(R.id.Name);
+        errorName = findViewById(R.id.needName);
+        playerName = findViewById(R.id.playerName);
+
+        errorName.setText(needName);
+        setRules.setText(rules);
+        toMove.setText(toPlay);
+        welcomeTag.setText(welcomeMessage);
+        Name.setText(name);
+        playerName.setText(null);
+
+
+
 
         toMove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (name.toString() != null) {
+
+                //If the player has a game name, move on
+
+                if (!playerName.toString().equals("")) {
 
                     deck = new Deck();
 
-                    player = new Player(deck.deal4(), name.toString());
+                    player = new Player(Name.toString(), deck);
 
-                    startActivity(new Intent(WelcomeScreen.this, Game.class));
+                    Intent newIntent = new Intent(WelcomeScreen.this, FourSpoons.class);
+                    newIntent.putExtra("host", player);
+                    newIntent.putExtra("round", "Round ");
+                    newIntent.putExtra("num", 1);
+                    startActivity(newIntent);
+                } else {
+                    //Else, let the player know they need a game name
+                    errorName.setVisibility(View.VISIBLE);
                 }
-                errorName.setVisibility(View.VISIBLE);
             }
         });
 

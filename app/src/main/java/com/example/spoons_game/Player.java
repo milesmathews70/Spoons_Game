@@ -16,19 +16,38 @@ public class Player implements Serializable {
      * The player's hand
      */
     private ArrayList<Card> hand;
-    public Player(ArrayList<Card> h, String n) {
-        hand = h;
+    /**
+     * The dealer's deck
+     */
+    private Deck deck;
+
+    /**
+     * The pile of cards that is sent to the next player
+     */
+    private Deck otherDeck = new Deck(this);
+
+    public Player(String n, Deck d) {
         name = n;
+        deck = d;
+        hand = deck.deal4();
     }
 
     /**
      * The function for swapping cards
      * @param pos The position to swap cards
      * @param card The new card
+     * @return returns the next card in the list
      */
-    public void swap(int pos, Card card) {
+    public Card swap(int pos, Card card) {
         hand.remove(pos);
         hand.add(card);
+        if (deck.size() != 0) {
+            Card c = deck.pop();
+            otherDeck.push(c);
+            return c;
+        } else {
+            return null;
+        }
     }
 
     /**
@@ -90,6 +109,14 @@ public class Player implements Serializable {
 
     public Card getCard(int pos) {
         return hand.get(pos);
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public Deck getOtherDeck() {
+        return otherDeck;
     }
 }
 
