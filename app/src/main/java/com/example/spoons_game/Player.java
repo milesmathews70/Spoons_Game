@@ -118,5 +118,10 @@ public class Player implements Serializable {
     public Deck getOtherDeck() {
         return otherDeck;
     }
+
+    public void newDeck() {
+        deck = new Deck();
+        hand = deck.deal4();
+    }
 }
 

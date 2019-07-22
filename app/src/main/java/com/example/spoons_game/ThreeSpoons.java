@@ -26,6 +26,7 @@ public class ThreeSpoons extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final Player player = (Player) getIntent().getSerializableExtra("host");
+        player.newDeck();
         final int num = getIntent().getIntExtra("num", 0);
         if (num == 0) {
             Log.d("Game", "Round is wrong bruh");
@@ -48,7 +49,7 @@ public class ThreeSpoons extends AppCompatActivity {
         card4 = findViewById(R.id.cardquatro);
         newcard = findViewById(R.id.cardcinco);
 
-        spoonone = findViewById(R.id.spoonuno);
+        spoonone = findViewById(R.id.spoonsuno);
         spoonone.setImageResource(R.drawable.spoon);
         spoontwo = findViewById(R.id.spoondos);
         spoontwo.setImageResource(R.drawable.spoon);

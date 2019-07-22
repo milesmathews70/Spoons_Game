@@ -67,7 +67,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
                     player = new Player(Name.toString(), deck);
 
-                    Intent newIntent = new Intent(WelcomeScreen.this, FourSpoons.class);
+                    Intent newIntent = new Intent(WelcomeScreen.this, SevenSpoons.class);
                     newIntent.putExtra("host", player);
                     newIntent.putExtra("round", "Round ");
                     newIntent.putExtra("num", 1);

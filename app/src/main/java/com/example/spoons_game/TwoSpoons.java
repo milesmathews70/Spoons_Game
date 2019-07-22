@@ -16,7 +16,7 @@ public class TwoSpoons extends AppCompatActivity {
 
     Card cardone, cardtwo, cardthree, cardfour, cardfive;
     String c1, c2, c3, c4, c5;
-    ImageView spoonone, spoontwo, spoonthree, spoonfour;
+    ImageView spoonone, spoontwo;
 
     private static final String TAG = "Game";
 
@@ -26,6 +26,7 @@ public class TwoSpoons extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         final Player player = (Player) getIntent().getSerializableExtra("host");
+        player.newDeck();
         final int num = getIntent().getIntExtra("num", 0);
         if (num == 0) {
             Log.d("Game", "Round is wrong bruh");
@@ -48,7 +49,7 @@ public class TwoSpoons extends AppCompatActivity {
         card4 = findViewById(R.id.cardquatro);
         newcard = findViewById(R.id.cardcinco);
 
-        spoonone = findViewById(R.id.spoonuno);
+        spoonone = findViewById(R.id.spoonsuno);
         spoonone.setImageResource(R.drawable.spoon);
         spoontwo = findViewById(R.id.spoondos);
         spoontwo.setImageResource(R.drawable.spoon);
@@ -96,7 +97,8 @@ public class TwoSpoons extends AppCompatActivity {
         spoonone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newIntent = new Intent(TwoSpoons.this, ThreeSpoons.class);
+                //For multiplayer, when all spoons are taken, then we move to the next game
+                Intent newIntent = new Intent(TwoSpoons.this, OneSpoon.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
@@ -107,7 +109,8 @@ public class TwoSpoons extends AppCompatActivity {
         spoontwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newIntent = new Intent(TwoSpoons.this, ThreeSpoons.class);
+                //For multiplayer, when all spoons are taken, then we move to the next game
+                Intent newIntent = new Intent(TwoSpoons.this, OneSpoon.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
