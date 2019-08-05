@@ -1,9 +1,9 @@
-package com.example.spoons_game;
+package com.google.example.spoons_game;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class WaitingScreen extends AppCompatActivity {
+public class WaitingScreen extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

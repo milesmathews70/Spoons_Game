@@ -1,4 +1,4 @@
-package com.example.spoons_game;
+package com.google.example.spoons_game;
 
 import java.io.Serializable;
 import java.util.ArrayList;

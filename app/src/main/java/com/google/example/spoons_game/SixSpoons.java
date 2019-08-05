@@ -1,6 +1,6 @@
-package com.example.spoons_game;
+package com.google.example.spoons_game;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-public class FourSpoons extends AppCompatActivity {
+
+
+public class SixSpoons extends Activity {
 
     ImageView card1, card2, card3, card4,newcard;
 
@@ -16,7 +18,7 @@ public class FourSpoons extends AppCompatActivity {
 
     Card cardone, cardtwo, cardthree, cardfour, cardfive;
     String c1, c2, c3, c4, c5;
-    ImageView spoonone, spoontwo, spoonthree, spoonfour;
+    ImageView spoonone, spoontwo, spoonthree, spoonfour, spoonfive, spoonsix;
 
     private static final String TAG = "Game";
 
@@ -35,7 +37,7 @@ public class FourSpoons extends AppCompatActivity {
         String round = r.concat(Integer.toString(num));
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.four_spoons);
+        setContentView(R.layout.six_spoons);
 
         displayNewCard = findViewById(R.id.newcardLabel);
         displayNewCard.setText(newCard);
@@ -57,6 +59,10 @@ public class FourSpoons extends AppCompatActivity {
         spoonthree.setImageResource(R.drawable.spoon);
         spoonfour = findViewById(R.id.spoonquatro);
         spoonfour.setImageResource(R.drawable.spoon);
+        spoonfive = findViewById(R.id.spoonscinco);
+        spoonfive.setImageResource(R.drawable.spoon);
+        spoonsix = findViewById(R.id.spoonsseis);
+        spoonsix.setImageResource(R.drawable.spoon);
 
         cardfive = player.getDeck().pop();
         resetHand(player, player.getDeck());
@@ -102,7 +108,7 @@ public class FourSpoons extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //For multiplayer, when all spoons are taken, then we move to the next game
-                Intent newIntent = new Intent(FourSpoons.this, ThreeSpoons.class);
+                Intent newIntent = new Intent(SixSpoons.this, FiveSpoons.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
@@ -114,7 +120,7 @@ public class FourSpoons extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //For multiplayer, when all spoons are taken, then we move to the next game
-                Intent newIntent = new Intent(FourSpoons.this, ThreeSpoons.class);
+                Intent newIntent = new Intent(SixSpoons.this, FiveSpoons.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
@@ -126,7 +132,7 @@ public class FourSpoons extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //For multiplayer, when all spoons are taken, then we move to the next game
-                Intent newIntent = new Intent(FourSpoons.this, ThreeSpoons.class);
+                Intent newIntent = new Intent(SixSpoons.this, FiveSpoons.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
@@ -138,7 +144,31 @@ public class FourSpoons extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //For multiplayer, when all spoons are taken, then we move to the next game
-                Intent newIntent = new Intent(FourSpoons.this, ThreeSpoons.class);
+                Intent newIntent = new Intent(SixSpoons.this, FiveSpoons.class);
+                newIntent.putExtra("num", num + 1);
+                newIntent.putExtra("host", player);
+                newIntent.putExtra("round", "Round");
+                startActivity(newIntent);
+            }
+        });
+
+        spoonfive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //For multiplayer, when all spoons are taken, then we move to the next game
+                Intent newIntent = new Intent(SixSpoons.this, FiveSpoons.class);
+                newIntent.putExtra("num", num + 1);
+                newIntent.putExtra("host", player);
+                newIntent.putExtra("round", "Round");
+                startActivity(newIntent);
+            }
+        });
+
+        spoonsix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //For multiplayer, when all spoons are taken, then we move to the next game
+                Intent newIntent = new Intent(SixSpoons.this, FiveSpoons.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
@@ -150,7 +180,6 @@ public class FourSpoons extends AppCompatActivity {
     //Use displayCard to display the cards for the game,
     // this method is to be called whenever we reset the hand
     public void displayCard(ImageView image, String cardName) {
-        Log.d(TAG, "checking if the images work");
         if (cardName.equals("Ace of Clubs")) {
             image.setImageResource(R.drawable.ac);
         } else if (cardName.equals("Ace of Diamonds")) {

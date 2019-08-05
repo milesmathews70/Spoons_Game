@@ -1,14 +1,14 @@
-package com.example.spoons_game;
+package com.google.example.spoons_game;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-public class OneSpoon extends AppCompatActivity {
+public class ThreeSpoons extends Activity {
 
     ImageView card1, card2, card3, card4,newcard;
 
@@ -16,7 +16,7 @@ public class OneSpoon extends AppCompatActivity {
 
     Card cardone, cardtwo, cardthree, cardfour, cardfive;
     String c1, c2, c3, c4, c5;
-    ImageView spoonone;
+    ImageView spoonone, spoontwo, spoonthree;
 
     private static final String TAG = "Game";
 
@@ -35,7 +35,7 @@ public class OneSpoon extends AppCompatActivity {
         String round = r.concat(Integer.toString(num));
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.one_spoon);
+        setContentView(R.layout.three_spoons);
 
         displayNewCard = findViewById(R.id.newcardLabel);
         displayNewCard.setText(newCard);
@@ -51,6 +51,10 @@ public class OneSpoon extends AppCompatActivity {
 
         spoonone = findViewById(R.id.spoonsuno);
         spoonone.setImageResource(R.drawable.spoon);
+        spoontwo = findViewById(R.id.spoondos);
+        spoontwo.setImageResource(R.drawable.spoon);
+        spoonthree = findViewById(R.id.spoontres);
+        spoonthree.setImageResource(R.drawable.spoon);
 
         cardfive = player.getDeck().pop();
         resetHand(player, player.getDeck());
@@ -95,7 +99,29 @@ public class OneSpoon extends AppCompatActivity {
         spoonone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newIntent = new Intent(OneSpoon.this, WelcomeScreen.class);
+                Intent newIntent = new Intent(ThreeSpoons.this, TwoSpoons.class);
+                newIntent.putExtra("num", num + 1);
+                newIntent.putExtra("host", player);
+                newIntent.putExtra("round", "Round");
+                startActivity(newIntent);
+            }
+        });
+
+        spoontwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(ThreeSpoons.this, TwoSpoons.class);
+                newIntent.putExtra("num", num + 1);
+                newIntent.putExtra("host", player);
+                newIntent.putExtra("round", "Round");
+                startActivity(newIntent);
+            }
+        });
+
+        spoonthree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newIntent = new Intent(ThreeSpoons.this, TwoSpoons.class);
                 newIntent.putExtra("num", num + 1);
                 newIntent.putExtra("host", player);
                 newIntent.putExtra("round", "Round");
@@ -237,4 +263,3 @@ public class OneSpoon extends AppCompatActivity {
         Log.d("Game", Integer.toString(player.getOtherDeck().size()));
     }
 }
-

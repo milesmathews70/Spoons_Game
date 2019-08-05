@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.spoons_game">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.google.example.spoons_game">
 
     <application
         android:allowBackup="true"
@@ -8,24 +9,25 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".SignIn">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name="com.google.example.spoons_game.SignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Rules"></activity>
-        <activity android:name=".WelcomeScreen"></activity>
-        <activity android:name=".SevenSpoons"></activity>
-        <activity android:name=".SixSpoons"></activity>
-        <activity android:name=".FiveSpoons"></activity>
-        <activity android:name=".FourSpoons"></activity>
-        <activity android:name=".ThreeSpoons"></activity>
-        <activity android:name=".TwoSpoons"></activity>
-        <activity android:name=".OneSpoon"></activity>
-        <activity android:name=".WaitingScreen"></activity>
+        <activity android:name="com.google.example.spoons_game.Rules"></activity>
+        <activity android:name="com.google.example.spoons_game.WelcomeScreen"></activity>
+        <activity android:name="com.google.example.spoons_game.SevenSpoons"></activity>
+        <activity android:name="com.google.example.spoons_game.SixSpoons"></activity>
+        <activity android:name="com.google.example.spoons_game.FiveSpoons"></activity>
+        <activity android:name="com.google.example.spoons_game.FourSpoons"></activity>
+        <activity android:name="com.google.example.spoons_game.ThreeSpoons"></activity>
+        <activity android:name="com.google.example.spoons_game.TwoSpoons"></activity>
+        <activity android:name="com.google.example.spoons_game.OneSpoon"></activity>
+        <activity android:name="com.google.example.spoons_game.WaitingScreen"></activity>
     </application>
 
 </manifest>

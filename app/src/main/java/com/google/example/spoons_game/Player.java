@@ -1,4 +1,4 @@
-package com.example.spoons_game;
+package com.google.example.spoons_game;
 
 import java.io.Serializable;
 import java.util.*;
@@ -25,6 +25,11 @@ public class Player implements Serializable {
      * The pile of cards that is sent to the next player
      */
     private Deck otherDeck = new Deck(this);
+
+    /**
+     * The pile of cards that are sent to this player
+     */
+    private Deck currentDeck = new Deck(this);
 
     public Player(String n, Deck d) {
         name = n;
@@ -121,6 +126,8 @@ public class Player implements Serializable {
 
     public void newDeck() {
         deck = new Deck();
+        otherDeck = new Deck(this);
+        currentDeck = new Deck(this);
         hand = deck.deal4();
     }
 }

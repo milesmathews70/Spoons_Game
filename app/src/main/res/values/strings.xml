@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Spoons_Game</string>
+    <string name="client_id">773377708349-2l8nqsmjsavfv035fqmd3lmbo04rrva3.apps.googleusercontent.com</string>
+    <string name="project_id">spoons-248403","auth_uri":"https://accounts.google.com/o/oauth2/auth"</string>
+    <string name="token_uri">https://oauth2.googleapis.com/token</string>
+    <string name="auth_provider_x509_cert_url">https://www.googleapis.com/oauth2/v1/certs</string>
+    <string name="redirect_uris">["urn:ietf:wg:oauth:2.0:oob","http://localhost"]</string>
+    <string name="api_key">AIzaSyBFoeF-Wjzvm7UW2U4RPQWnLuoI7Mrqcdc</string>
+    <string name="status_exception_error">%1$s (status %2$d). %3$s.</string>
 </resources>

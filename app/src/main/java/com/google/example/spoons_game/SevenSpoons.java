@@ -1,6 +1,6 @@
-package com.example.spoons_game;
+package com.google.example.spoons_game;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.widget.TextView;
 import android.widget.ImageView;
 
-public class SevenSpoons extends AppCompatActivity {
+public class SevenSpoons extends Activity {
 
     ImageView card1, card2, card3, card4,newcard;
 
